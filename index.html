@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pieter Van den Keybus — CX &amp; UX Strateeg | Antwerpen</title>
+  <meta name="description" content="Pieter Van den Keybus is een CX- en UX-strateeg uit Antwerpen. Oprichter van Uflow, UX-consultant voor de Europese Commissie en lid van de adviesraad van Kom op tegen Kanker." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://pieter-van-den-keybus.be/" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://pieter-van-den-keybus.be/" />
+  <meta property="og:title" content="Pieter Van den Keybus — CX &amp; UX Strateeg" />
+  <meta property="og:description" content="UX/CX-strateeg en consultant gevestigd in Antwerpen. Oprichter van Uflow." />
+  <meta property="og:locale" content="nl_BE" />
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Pieter Van den Keybus",
+    "jobTitle": "CX & UX Strateeg",
+    "url": "https://pieter-van-den-keybus.be",
+    "sameAs": [
+      "https://www.linkedin.com/in/pietervandenkeybus",
+      "https://uflow.be"
+    ],
+    "worksFor": {
+      "@type": "Organization",
+      "name": "Uflow",
+      "url": "https://uflow.be"
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Antwerpen",
+      "addressCountry": "BE"
+    }
+  }
+  </script>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ink:     #0f0f0f;
+      --ink2:    #3a3a3a;
+      --ink3:    #7a7a7a;
+      --accent:  #1a3fcc;
+      --accent2: #0e2a8a;
+      --bg:      #fafaf8;
+      --bg2:     #f0f0ec;
+      --white:   #ffffff;
+      --line:    #e0e0da;
+      --serif:   'Cormorant Garamond', Georgia, serif;
+      --sans:    'Outfit', system-ui, sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: var(--sans);
+      font-weight: 300;
+      font-size: 16px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.2rem 4rem;
+      background: rgba(250,250,248,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid transparent;
+      transition: border-color .3s;
+    }
+    nav.scrolled { border-color: var(--line); }
+    .nav-logo {
+      font-family: var(--serif);
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--ink);
+      text-decoration: none;
+      letter-spacing: .02em;
+    }
+    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+    .nav-links a {
+      font-size: .8rem;
+      font-weight: 500;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--ink2);
+      text-decoration: none;
+      transition: color .2s;
+    }
+    .nav-links a:hover { color: var(--accent); }
+
+    /* ── HERO ── */
+    #hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      padding: 8rem 4rem 4rem;
+      gap: 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute; inset: 0; z-index: 0;
+      background:
+        radial-gradient(ellipse 60% 60% at 75% 50%, rgba(26,63,204,.06) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 40% at 20% 80%, rgba(26,63,204,.04) 0%, transparent 60%);
+    }
+    .hero-content { position: relative; z-index: 1; }
+    .hero-eyebrow {
+      display: inline-flex; align-items: center; gap: .6rem;
+      font-size: .72rem; font-weight: 500; letter-spacing: .15em; text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1.5rem;
+      opacity: 0; animation: fadeUp .6s .1s forwards;
+    }
+    .hero-eyebrow::before {
+      content: ''; display: block;
+      width: 2rem; height: 1px; background: var(--accent);
+    }
+    .hero-title {
+      font-family: var(--serif);
+      font-size: clamp(3rem, 6vw, 5.5rem);
+      font-weight: 600;
+      line-height: 1.05;
+      letter-spacing: -.01em;
+      color: var(--ink);
+      margin-bottom: 1.5rem;
+      opacity: 0; animation: fadeUp .6s .2s forwards;
+    }
+    .hero-title em {
+      font-style: italic;
+      color: var(--accent);
+    }
+    .hero-sub {
+      font-size: 1.05rem;
+      color: var(--ink2);
+      max-width: 34ch;
+      margin-bottom: 2.5rem;
+      line-height: 1.8;
+      opacity: 0; animation: fadeUp .6s .35s forwards;
+    }
+    .hero-actions {
+      display: flex; gap: 1rem; flex-wrap: wrap;
+      opacity: 0; animation: fadeUp .6s .5s forwards;
+    }
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: .5rem;
+      background: var(--accent); color: #fff;
+      padding: .85rem 2rem;
+      font-family: var(--sans); font-size: .8rem; font-weight: 500;
+      letter-spacing: .08em; text-transform: uppercase;
+      text-decoration: none; border: none; cursor: pointer;
+      transition: background .2s, transform .2s;
+    }
+    .btn-primary:hover { background: var(--accent2); transform: translateY(-1px); }
+    .btn-ghost {
+      display: inline-flex; align-items: center; gap: .5rem;
+      background: transparent; color: var(--ink);
+      padding: .85rem 2rem;
+      font-family: var(--sans); font-size: .8rem; font-weight: 500;
+      letter-spacing: .08em; text-transform: uppercase;
+      text-decoration: none; border: 1px solid var(--line); cursor: pointer;
+      transition: border-color .2s, color .2s, transform .2s;
+    }
+    .btn-ghost:hover { border-color: var(--ink); transform: translateY(-1px); }
+
+    .hero-visual {
+      position: relative; z-index: 1;
+      opacity: 0; animation: fadeIn .8s .4s forwards;
+    }
+    .hero-card {
+      background: var(--white);
+      border: 1px solid var(--line);
+      padding: 3rem;
+      position: relative;
+    }
+    .hero-card::before {
+      content: ''; position: absolute;
+      top: -1px; left: 2rem; right: 2rem; height: 3px;
+      background: var(--accent);
+    }
+    .hero-card-label {
+      font-size: .72rem; font-weight: 500; letter-spacing: .12em; text-transform: uppercase;
+      color: var(--ink3); margin-bottom: 2rem;
+    }
+    .stat-row { display: flex; gap: 2rem; margin-bottom: 2rem; }
+    .stat { flex: 1; }
+    .stat-num {
+      font-family: var(--serif);
+      font-size: 2.8rem; font-weight: 600; line-height: 1;
+      color: var(--ink); display: block; margin-bottom: .3rem;
+    }
+    .stat-label { font-size: .78rem; color: var(--ink3); font-weight: 400; }
+    .hero-divider { height: 1px; background: var(--line); margin: 1.5rem 0; }
+    .hero-roles { display: flex; flex-direction: column; gap: .6rem; }
+    .hero-role {
+      display: flex; align-items: center; gap: .75rem;
+      font-size: .85rem; color: var(--ink2);
+    }
+    .hero-role-dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: var(--accent); flex-shrink: 0;
+    }
+
+    /* ── SECTIONS ── */
+    section { padding: 6rem 4rem; }
+    .section-inner { max-width: 1100px; margin: 0 auto; }
+    .section-label {
+      font-size: .72rem; font-weight: 500; letter-spacing: .15em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 1rem;
+      display: flex; align-items: center; gap: .6rem;
+    }
+    .section-label::before {
+      content: ''; display: block;
+      width: 1.5rem; height: 1px; background: var(--accent);
+    }
+    .section-title {
+      font-family: var(--serif);
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      font-weight: 600; line-height: 1.1;
+      color: var(--ink); margin-bottom: 1rem;
+    }
+    .section-intro {
+      font-size: 1.05rem; color: var(--ink2); max-width: 52ch;
+      line-height: 1.8; margin-bottom: 3.5rem;
+    }
+
+    /* ── ABOUT ── */
+    #about { background: var(--white); }
+    .about-grid { display: grid; grid-template-columns: 1fr 1.4fr; gap: 5rem; align-items: start; }
+    .about-left {}
+    .about-body { font-size: 1rem; color: var(--ink2); line-height: 1.9; margin-bottom: 1.2rem; }
+    .about-highlights { margin-top: 2.5rem; display: flex; flex-direction: column; gap: 1rem; }
+    .highlight {
+      display: flex; gap: 1rem; align-items: flex-start;
+      padding: 1.2rem; border: 1px solid var(--line);
+      background: var(--bg);
+    }
+    .highlight-icon {
+      width: 36px; height: 36px; flex-shrink: 0;
+      background: var(--accent); color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      font-size: .85rem; font-weight: 600; font-family: var(--serif);
+    }
+    .highlight-text strong { display: block; font-size: .88rem; font-weight: 500; color: var(--ink); }
+    .highlight-text span { font-size: .82rem; color: var(--ink3); }
+
+    /* ── EXPERTISE ── */
+    #expertise { background: var(--bg); }
+    .expertise-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5px; background: var(--line); }
+    .expertise-card {
+      background: var(--white);
+      padding: 2.5rem;
+      transition: background .2s;
+    }
+    .expertise-card:hover { background: #f7f7ff; }
+    .expertise-num {
+      font-family: var(--serif); font-size: 3rem; font-weight: 600;
+      color: var(--line); line-height: 1; margin-bottom: 1rem;
+      transition: color .2s;
+    }
+    .expertise-card:hover .expertise-num { color: rgba(26,63,204,.15); }
+    .expertise-card h3 {
+      font-family: var(--serif); font-size: 1.4rem; font-weight: 600;
+      color: var(--ink); margin-bottom: .75rem;
+    }
+    .expertise-card p { font-size: .9rem; color: var(--ink2); line-height: 1.8; margin-bottom: 1.2rem; }
+    .expertise-tags { display: flex; flex-wrap: wrap; gap: .4rem; }
+    .tag {
+      font-size: .72rem; font-weight: 500; letter-spacing: .06em;
+      padding: .3rem .7rem; border: 1px solid var(--line);
+      color: var(--ink3); background: var(--bg);
+    }
+
+    /* ── PROJECTS ── */
+    #projects { background: var(--white); }
+    .projects-list { display: flex; flex-direction: column; gap: 0; border-top: 1px solid var(--line); }
+    .project-row {
+      display: grid; grid-template-columns: 2fr 1fr 1fr auto;
+      align-items: center; gap: 2rem;
+      padding: 2rem 0; border-bottom: 1px solid var(--line);
+      transition: background .15s; cursor: default;
+    }
+    .project-row:hover { background: var(--bg); margin: 0 -4rem; padding: 2rem 4rem; }
+    .project-name {
+      font-family: var(--serif); font-size: 1.5rem; font-weight: 600; color: var(--ink);
+    }
+    .project-desc { font-size: .88rem; color: var(--ink3); margin-top: .2rem; }
+    .project-meta { font-size: .82rem; color: var(--ink2); }
+    .project-meta strong { display: block; font-weight: 500; color: var(--ink); font-size: .78rem; letter-spacing: .05em; text-transform: uppercase; margin-bottom: .2rem; }
+    .project-arrow {
+      width: 36px; height: 36px; border: 1px solid var(--line);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--ink3); font-size: 1rem;
+      transition: background .2s, color .2s, border-color .2s;
+    }
+    .project-row:hover .project-arrow { background: var(--accent); color: #fff; border-color: var(--accent); }
+
+    /* ── CONTACT ── */
+    #contact { background: var(--ink); color: var(--bg); }
+    #contact .section-label { color: rgba(255,255,255,.4); }
+    #contact .section-label::before { background: rgba(255,255,255,.4); }
+    #contact .section-title { color: var(--white); }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
+    .contact-lead {
+      font-family: var(--serif); font-size: 1.4rem; font-weight: 400;
+      color: rgba(255,255,255,.7); line-height: 1.7; margin-bottom: 2.5rem;
+    }
+    .contact-link {
+      display: flex; align-items: center; gap: 1rem;
+      padding: 1.2rem 0; border-bottom: 1px solid rgba(255,255,255,.1);
+      text-decoration: none; color: var(--white);
+      transition: padding-left .2s;
+    }
+    .contact-link:hover { padding-left: .5rem; }
+    .contact-link-type { font-size: .72rem; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.4); min-width: 5rem; }
+    .contact-link-val { font-size: .95rem; color: var(--white); }
+    .contact-aside {}
+    .contact-info-block {
+      border: 1px solid rgba(255,255,255,.1);
+      padding: 2rem;
+      margin-bottom: 1.5rem;
+    }
+    .contact-info-block h4 {
+      font-size: .72rem; letter-spacing: .12em; text-transform: uppercase;
+      color: rgba(255,255,255,.4); margin-bottom: 1rem;
+    }
+    .contact-info-block p { font-size: .9rem; color: rgba(255,255,255,.7); line-height: 1.7; }
+    .contact-btn {
+      display: inline-flex; align-items: center; gap: .5rem;
+      background: var(--white); color: var(--ink);
+      padding: 1rem 2.2rem;
+      font-family: var(--sans); font-size: .8rem; font-weight: 500;
+      letter-spacing: .08em; text-transform: uppercase;
+      text-decoration: none; margin-top: 2rem;
+      transition: background .2s, transform .2s;
+    }
+    .contact-btn:hover { background: var(--bg2); transform: translateY(-1px); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #080808; color: rgba(255,255,255,.3);
+      padding: 2rem 4rem;
+      display: flex; align-items: center; justify-content: space-between;
+      font-size: .78rem; letter-spacing: .05em;
+    }
+    footer a { color: rgba(255,255,255,.4); text-decoration: none; transition: color .2s; }
+    footer a:hover { color: rgba(255,255,255,.8); }
+    .footer-links { display: flex; gap: 2rem; }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; } to { opacity: 1; }
+    }
+    .reveal {
+      opacity: 0; transform: translateY(24px);
+      transition: opacity .6s ease, transform .6s ease;
+    }
+    .reveal.visible { opacity: 1; transform: none; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { gap: 1.5rem; }
+      #hero { grid-template-columns: 1fr; padding: 7rem 1.5rem 3rem; min-height: auto; }
+      .hero-visual { display: none; }
+      section { padding: 4rem 1.5rem; }
+      .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .expertise-grid { grid-template-columns: 1fr; gap: 1px; }
+      .project-row { grid-template-columns: 1fr; gap: .5rem; }
+      .project-row:hover { margin: 0; padding: 2rem 0; }
+      .project-meta, .project-arrow { display: none; }
+      footer { flex-direction: column; gap: 1rem; text-align: center; padding: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="#hero" class="nav-logo">Pieter Van den Keybus</a>
+  <ul class="nav-links">
+    <li><a href="#about">Over mij</a></li>
+    <li><a href="#expertise">Expertise</a></li>
+    <li><a href="#projects">Projecten</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">CX &amp; UX Strateeg · Antwerpen</div>
+    <h1 class="hero-title">
+      Pieter<br>
+      Van den<br>
+      <em>Keybus</em>
+    </h1>
+    <p class="hero-sub">Ik help organisaties betere digitale ervaringen bouwen — vanuit de gebruiker, gedreven door strategie.</p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn-primary">Neem contact op →</a>
+      <a href="#projects" class="btn-ghost">Bekijk mijn werk</a>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="hero-card">
+      <p class="hero-card-label">Profiel op een rij</p>
+      <div class="stat-row">
+        <div class="stat">
+          <span class="stat-num">10+</span>
+          <span class="stat-label">jaar UX/CX-ervaring</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num">2</span>
+          <span class="stat-label">actieve rollen</span>
+        </div>
+      </div>
+      <div class="hero-divider"></div>
+      <div class="hero-roles">
+        <div class="hero-role"><div class="hero-role-dot"></div>Oprichter — Uflow, Antwerpen</div>
+        <div class="hero-role"><div class="hero-role-dot"></div>UX Consultant — EC DG DIGIT A2</div>
+        <div class="hero-role"><div class="hero-role-dot"></div>Advisory Board — Kom op tegen Kanker</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-inner">
+    <div class="about-grid">
+      <div class="about-left reveal">
+        <p class="section-label">Over mij</p>
+        <h2 class="section-title">Strategie die begint bij de mens</h2>
+        <p class="about-body">Ik ben Pieter Van den Keybus, CX- en UX-strateeg gevestigd in Antwerpen. Via mijn bureau <strong>Uflow</strong> begeleid ik organisaties bij het ontwerpen van gebruiksvriendelijke digitale producten en klantgerichte diensten.</p>
+        <p class="about-body">Met meer dan tien jaar ervaring in UX-onderzoek, service design en digitale strategie werk ik voor een divers klantenportfolio — van Belgische bedrijven zoals Immoweb en Vinçotte tot Europese instellingen zoals de Europese Commissie (DG DIGIT).</p>
+        <p class="about-body">Mijn aanpak combineert kwalitatief gebruikersonderzoek met strategisch inzicht — altijd gericht op concrete, uitvoerbare aanbevelingen die het verschil maken voor gebruikers én organisaties.</p>
+      </div>
+      <div class="about-right reveal">
+        <div class="about-highlights">
+          <div class="highlight">
+            <div class="highlight-icon">U</div>
+            <div class="highlight-text">
+              <strong>Uflow — UX/CX Bureau</strong>
+              <span>Oprichter en managing consultant. Strategische UX/CX-begeleiding voor Belgische en internationale organisaties.</span>
+            </div>
+          </div>
+          <div class="highlight">
+            <div class="highlight-icon">EC</div>
+            <div class="highlight-text">
+              <strong>Europese Commissie — DG DIGIT A2</strong>
+              <span>UX consultant voor EU-digitale projecten. Arachne+, My PMO, EU Learn en meer.</span>
+            </div>
+          </div>
+          <div class="highlight">
+            <div class="highlight-icon">K</div>
+            <div class="highlight-text">
+              <strong>Kom op tegen Kanker</strong>
+              <span>Lid van de strategische adviesraad. Bijdrage aan digitale strategie en communicatie.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERTISE -->
+<section id="expertise">
+  <div class="section-inner">
+    <p class="section-label reveal">Expertise</p>
+    <h2 class="section-title reveal">Wat ik doe</h2>
+    <p class="section-intro reveal">Mijn werk situeert zich op het snijvlak van gebruikersonderzoek, strategie en digitaal productontwerp.</p>
+    <div class="expertise-grid">
+      <div class="expertise-card reveal">
+        <div class="expertise-num">01</div>
+        <h3>UX Research &amp; Strategy</h3>
+        <p>Van exploratief gebruikersonderzoek tot strategische UX-roadmaps. Ik breng de behoeften van gebruikers in kaart en vertaal die naar concrete aanbevelingen voor product en dienst.</p>
+        <div class="expertise-tags">
+          <span class="tag">Diepte-interviews</span>
+          <span class="tag">Gebruikerstesten</span>
+          <span class="tag">UX-audits</span>
+          <span class="tag">Journey mapping</span>
+          <span class="tag">UAT</span>
+        </div>
+      </div>
+      <div class="expertise-card reveal">
+        <div class="expertise-num">02</div>
+        <h3>CX Strategie &amp; Consultancy</h3>
+        <p>Ik help organisaties een coherente klantervaring te ontwerpen — van eerste contact tot after-sales. Strategisch verankerd, operationeel uitvoerbaar.</p>
+        <div class="expertise-tags">
+          <span class="tag">CX-visie</span>
+          <span class="tag">Journey optimalisatie</span>
+          <span class="tag">Stakeholder management</span>
+          <span class="tag">KPI-raamwerken</span>
+        </div>
+      </div>
+      <div class="expertise-card reveal">
+        <div class="expertise-num">03</div>
+        <h3>Digitaal Product Design</h3>
+        <p>Van concept tot prototype: ik begeleid digitale productteams bij het ontwerpen van intuïtieve interfaces en solide informatiestructuren.</p>
+        <div class="expertise-tags">
+          <span class="tag">Wireframing</span>
+          <span class="tag">Prototyping</span>
+          <span class="tag">Informatiearchitectuur</span>
+          <span class="tag">Design systems</span>
+        </div>
+      </div>
+      <div class="expertise-card reveal">
+        <div class="expertise-num">04</div>
+        <h3>Advisory &amp; Governance</h3>
+        <p>Strategische begeleiding voor besturen en management op het vlak van digitale transformatie, klantgerichtheid en UX-governance.</p>
+        <div class="expertise-tags">
+          <span class="tag">Adviesraad</span>
+          <span class="tag">Governance</span>
+          <span class="tag">C-level presentaties</span>
+          <span class="tag">EU-institutioneel</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="section-inner">
+    <p class="section-label reveal">Projecten</p>
+    <h2 class="section-title reveal">Recente samenwerkingen</h2>
+    <p class="section-intro reveal">Een selectie van trajecten en klanten.</p>
+    <div class="projects-list">
+
+      <div class="project-row reveal">
+        <div>
+          <div class="project-name">Immoweb</div>
+          <div class="project-desc">Belgisch vastgoedplatform — Aviv Group</div>
+        </div>
+        <div class="project-meta">
+          <strong>Rol</strong>UX Research Lead
+        </div>
+        <div class="project-meta">
+          <strong>Periode</strong>2019 – heden
+        </div>
+        <div class="project-arrow">→</div>
+      </div>
+
+      <div class="project-row reveal">
+        <div>
+          <div class="project-name">Europese Commissie</div>
+          <div class="project-desc">DG DIGIT A2 — Arachne+, My PMO, EU Learn</div>
+        </div>
+        <div class="project-meta">
+          <strong>Rol</strong>UX Consultant
+        </div>
+        <div class="project-meta">
+          <strong>Periode</strong>Lopend
+        </div>
+        <div class="project-arrow">→</div>
+      </div>
+
+      <div class="project-row reveal">
+        <div>
+          <div class="project-name">Vinçotte / Connect by Kiwa</div>
+          <div class="project-desc">Keuring &amp; certificering — CX strategie</div>
+        </div>
+        <div class="project-meta">
+          <strong>Rol</strong>UX/CX Consultant
+        </div>
+        <div class="project-meta">
+          <strong>Periode</strong>Recent
+        </div>
+        <div class="project-arrow">→</div>
+      </div>
+
+      <div class="project-row reveal">
+        <div>
+          <div class="project-name">Uflow.be</div>
+          <div class="project-desc">UX/CX strategiebureau — volledig klantenportfolio</div>
+        </div>
+        <div class="project-meta">
+          <strong>Rol</strong>Oprichter
+        </div>
+        <div class="project-meta">
+          <strong>Website</strong><a href="https://uflow.be" target="_blank" rel="noopener" style="color:var(--accent);">uflow.be</a>
+        </div>
+        <div class="project-arrow">→</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-inner">
+    <p class="section-label">Contact</p>
+    <div class="contact-grid">
+      <div>
+        <h2 class="section-title" style="color:var(--white);">Laten we kennismaken</h2>
+        <p class="contact-lead">Wil je samenwerken of gewoon kennismaken? Ik ben bereikbaar via e-mail of LinkedIn.</p>
+        <div>
+          <a href="mailto:pieter@uflow.be" class="contact-link">
+            <span class="contact-link-type">E-mail</span>
+            <span class="contact-link-val">pieter@uflow.be</span>
+          </a>
+          <a href="https://www.linkedin.com/in/pietervandenkeybus" target="_blank" rel="noopener" class="contact-link">
+            <span class="contact-link-type">LinkedIn</span>
+            <span class="contact-link-val">linkedin.com/in/pietervandenkeybus</span>
+          </a>
+          <a href="https://uflow.be" target="_blank" rel="noopener" class="contact-link">
+            <span class="contact-link-type">Bureau</span>
+            <span class="contact-link-val">uflow.be</span>
+          </a>
+        </div>
+        <a href="mailto:pieter@uflow.be" class="contact-btn">Stuur een bericht →</a>
+      </div>
+      <div class="contact-aside">
+        <div class="contact-info-block">
+          <h4>Locatie</h4>
+          <p>Antwerpen, België<br>Beschikbaar voor projecten in België en Europa.</p>
+        </div>
+        <div class="contact-info-block">
+          <h4>Talen</h4>
+          <p>Nederlands · Engels · Frans</p>
+        </div>
+        <div class="contact-info-block">
+          <h4>Beschikbaarheid</h4>
+          <p>Neem contact op voor informatie over beschikbaarheid en tarieven.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span>© 2025 Pieter Van den Keybus</span>
+  <div class="footer-links">
+    <a href="https://uflow.be" target="_blank" rel="noopener">uflow.be</a>
+    <a href="https://www.linkedin.com/in/pietervandenkeybus" target="_blank" rel="noopener">LinkedIn</a>
+  </div>
+</footer>
+
+<script>
+  // Sticky nav border
+  const nav = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 20);
+  });
+
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.1 });
+  reveals.forEach(el => io.observe(el));
+</script>
+</body>
+</html>
